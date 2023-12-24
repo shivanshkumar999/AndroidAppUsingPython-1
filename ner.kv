@@ -1,0 +1,81 @@
+<PII>
+    inputtext:inputtext
+    MDBoxLayout:
+        orientation:'vertical'
+        spacing: '15dp'
+
+        MDTopAppBar:
+            title:"PII-Detection"
+        
+        MDCard:
+            orientation:'vertical'
+            height:'300dp'
+            size_hint:0.7,None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            padding:25
+            radius:0
+
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color        
+                Line:
+                    width:5
+                    rectangle: self.x, self.y, self.width, self.height
+
+            MDRelativeLayout:
+
+                MDLabel:
+                    text:"Hello"
+                    font_size:"50sp"
+                    bold:True            
+                    pos_hint: {"center_x": .5, "center_y": .75}
+
+                
+                MDBoxLayout:
+                    orientation:'vertical'
+                    pos_hint: {"center_x": .5, "center_y": 0.7}
+
+                    MDTextField:
+                        id: inputtext
+                        hint_text:"Input Text"
+                        
+
+                    MDRoundFlatButton:
+                        text:"Detect PII"   
+                        md_bg_color: app.theme_cls.primary_color 
+                        theme_text_color:"Custom"
+                        text_color : 0,0,0,1
+                        on_release:root.pii_detected()
+                        
+        MDCard:
+            orientation:'vertical'
+            size_hint:0.7,None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            padding:25
+            radius:0
+
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color        
+                Line:
+                    width:5
+                    rectangle: self.x, self.y, self.width, self.height
+            
+            
+            MDRelativeLayout:
+                MDLabel:
+                    text: "Output"
+                    bold: True
+                    pos_hint:{"center_x": .5, "center_y": 1}
+
+                MDLabel:
+                    id:output
+                    text:root.output
+                    pos_hint:{"center_x": .5, "center_y": 0.1}
+
+        MDLabel:
+            text:"Made By, Shivansh Kumar"
+            halign:"center"
+            bold:True
+
+            
